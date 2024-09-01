@@ -1,0 +1,159 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navigation Bar */
+header nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    background-color: #5a4848;
+    padding: 10px 0;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: rgb(186, 169, 169);
+    text-decoration: none;
+    font-size: 16px;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background-image: url('your-background-image.jpg'); /* Update with your background image path */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.hero-content h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #ff6347;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.btn:hover {
+    background-color: #e55342;
+}
+
+/* Chili Powder Section */
+.chili-powder {
+    padding: 50px;
+    background-color: #f9f9f9;
+}
+
+.chili-powder .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.chili-powder .grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chili-powder .grid-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.chili-powder .grid-item p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #4b4343;
+    text-align: center;
+}
+
+/* Spice Products Section */
+.spice-products {
+    padding: 50px;
+    background-color: #ffffff;
+}
+
+.spice-products .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.spice-products .grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.spice-products .grid-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    
+}
+
+.spice-products .text-content {
+    padding: 20px;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+    
+}
+
+.spice-products .text-content p {
+    margin-bottom: 10px;
+}
+
+.buy-now-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff5722;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.buy-now-btn:hover {
+    background-color: #e64a19;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chili Powder Product Page</title>
+    <link rel="stylesheet" href="chili.css">
+    <script type="text/javascript">
+        sessionStorage.setItem('sourcePage', window.location.href);
+    </script>
+</head>
+<body>
+    <div class="product-container">
+        <div class="image-container">
+            <img src="your-image2.jpg" alt="Chili Powder">
+        </div>
+        <div class="description-container">
+            <p>Chili powder, a versatile and widely used spice, is essential for businesses in the food industry. It adds flavor, color, and heat to a variety of dishes, making it a key ingredient in global cuisines. From a business perspective, chili powder offers significant opportunities for market expansion due to its universal appeal. It can be marketed not only for culinary use but also for its health benefits, including metabolism boosting and anti-inflammatory properties. By sourcing high-quality chili and leveraging its popularity, businesses can create a strong brand presence and cater to diverse consumer preferences.</p>
+            <div class="quantity-selector">
+                <label for="quantity">Quantity:</label>
+                <div class="quantity-buttons">
+                    <button id="decrease">-</button>
+                    <input type="text" id="quantity" value="1">
+                    <button id="increase">+</button>
+                </div>
+            </div>
+            <button class="buy-now" id="buyNowButton">Buy Now</button>
+        </div>
+    </div>
+
+    <script>
+        const decreaseButton = document.getElementById('decrease');
+        const increaseButton = document.getElementById('increase');
+        const quantityInput = document.getElementById('quantity');
+        const buyNowButton = document.getElementById('buyNowButton');
+
+        decreaseButton.addEventListener('click', () => {
+            let quantity = parseInt(quantityInput.value);
+            if (quantity > 1) {
+                quantityInput.value = quantity - 1;
+            }
+        });
+
+        increaseButton.addEventListener('click', () => {
+            let quantity = parseInt(quantityInput.value);
+            quantityInput.value = quantity + 1;
+        });
+
+     // Function for "Buy Now" button
+     buyNowButton.addEventListener('click', () => {
+            const quantity = quantityInput.value;
+            window.location.href = 'order.html?quantity=' + quantity;
+        });
+    </script>
+</body>
+</html>

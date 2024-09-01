@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pepper Powder Product Page</title>
+    <link rel="stylesheet" href="ppowder.css">
+    <script type="text/javascript">
+        sessionStorage.setItem('sourcePage', window.location.href);
+    </script>
+</head>
+<body>
+    <div class="product-container">
+        <div class="image-container">
+            <img src="your-image1.jpg" alt="Pepper Powder">
+        </div>
+        <div class="description-container">
+            <p>Pepper powder, commonly referred to as black pepper powder, is a spice made by grinding peppercorns, which are the dried fruits of the Piper nigrum plant. It is one of the most widely used spices in the world, prized for its sharp, pungent flavor and aroma.</p>
+            <div class="quantity-selector">
+                <label for="quantity">Quantity:</label>
+                <div class="quantity-buttons">
+                    <button id="decrease">-</button>
+                    <input type="text" id="quantity" value="1">
+                    <button id="increase">+</button>
+                </div>
+            </div>
+            <button class="buy-now" id="buyNowButton">Buy Now</button>
+        </div>
+    </div>
+
+    <script>
+        const decreaseButton = document.getElementById('decrease');
+        const increaseButton = document.getElementById('increase');
+        const quantityInput = document.getElementById('quantity');
+        const buyNowButton = document.getElementById('buyNowButton');
+
+        decreaseButton.addEventListener('click', () => {
+            let quantity = parseInt(quantityInput.value);
+            if (quantity > 1) {
+                quantityInput.value = quantity - 1;
+            }
+        });
+
+        increaseButton.addEventListener('click', () => {
+            let quantity = parseInt(quantityInput.value);
+            quantityInput.value = quantity + 1;
+        });
+
+       // Function for "Buy Now" button
+       buyNowButton.addEventListener('click', () => {
+            const quantity = quantityInput.value;
+            window.location.href = 'order.html?quantity=' + quantity;
+        });
+    </script>
+</body>
+</html>

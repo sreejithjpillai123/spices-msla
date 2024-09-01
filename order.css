@@ -1,0 +1,67 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ddd7d7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('order background.jpg'); /* Replace with the actual image path */
+    background-size: cover; /* Makes the image cover the entire background */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Centers the image */
+}
+
+h1 {
+    position: absolute;
+    top: 50px;   /* Adjusts the vertical position */
+    left: 150px;  /* Adjusts the horizontal position */
+    color: #f4efeb;
+    font-size: 50px; /* Adjust font size if needed */
+    margin: 0;
+}
+
+/* Form Styles */
+form {
+    background-color: #e9dede;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background-color: #218838;
+}

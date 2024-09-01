@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="order.css"> <!-- Link to external CSS file -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize EmailJS with your public key
+            emailjs.init('mwkz1CMnCyuk4WYDB');
+
+            // Capture the source page information
+            const sourcePage = sessionStorage.getItem('sourcePage') || document.referrer;
+
+            // Get the quantity from the URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const quantity = urlParams.get('quantity') || '1';
+
+            // Set the hidden input values
+            document.querySelector('input[name="source_page"]').value = sourcePage;
+            document.querySelector('input[name="quantity"]').value = quantity;
+
+            // Handle the form submission
+            const form = document.getElementById('contact-form');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                emailjs.sendForm('service_nzra04q', 'template_tm7oe16', this)
+                    .then(function() {
+                        console.log('SUCCESS!');
+                        alert('Email sent successfully!');
+                        window.location.href = 'success.html'; // Redirect to success.html after successful submission
+                    }, function(error) {
+                        console.log('FAILED...', error.text);
+                        alert('Failed to send email. Please try again.');
+                    });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Order Now:</h1>
+    <form id="contact-form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="user_name" required><br><br>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="user_email" required><br><br>
+
+        <label for="message">Message</label>
+        <input type="text" id="message" name="message" required><br><br>
+
+        <label for="address">Address</label><br>
+        <textarea id="address" name="user_address" rows="4" cols="50" required></textarea><br><br>
+
+        <!-- Hidden inputs to store the source page and quantity -->
+        <input type="hidden" name="source_page" value="">
+        <input type="hidden" name="quantity" value="">
+
+        <input type="submit" value="Send">
+    </form>
+</body>
+</html>
