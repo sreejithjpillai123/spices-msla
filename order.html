@@ -7,9 +7,32 @@
     <link rel="stylesheet" href="order.css"> <!-- Link to external CSS file -->
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <style>
+        body {
+            position: relative;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Blinking effect for the main title */
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            color: #eae6e6;
+            font-size: 3rem;
+            margin-top: 50px;
+            animation: blink 0.5s step-start infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
         /* Floating animation for the form */
         #contact-form {
             animation: floatForm 4s ease-in-out infinite;
+            position: relative;
+            z-index: 10;
         }
 
         @keyframes floatForm {
@@ -60,6 +83,23 @@
             background-color: #FF4500;
             transform: scale(1.05) translateY(-10px);
         }
+
+        /* Background "Order Now" elements */
+        .background-text {
+            position: absolute;
+            color: rgba(239, 233, 232, 0.3); /* Light red color with transparency */
+            font-size: 5rem;
+            white-space: nowrap;
+            pointer-events: none; /* Prevent interaction with background text */
+            user-select: none; /* Prevent text selection */
+            z-index: 1;
+        }
+
+        /* Random movement animation for background text */
+        @keyframes moveBackgroundText {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(calc(100vw - 100px), calc(100vh - 100px)); }
+        }
     </style>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
@@ -92,6 +132,17 @@
                         alert('Failed to send email. Please try again.');
                     });
             });
+
+            // Create multiple "Order Now" elements in the background
+            for (let i = 0; i < 10; i++) {
+                const div = document.createElement('div');
+                div.className = 'background-text';
+                div.textContent = 'Order Now';
+                div.style.top = `${Math.random() * 100}vh`;
+                div.style.left = `${Math.random() * 100}vw`;
+                div.style.animation = `moveBackgroundText ${Math.random() * 10 + 10}s linear infinite`;
+                document.body.appendChild(div);
+            }
         });
     </script>
 </head>
