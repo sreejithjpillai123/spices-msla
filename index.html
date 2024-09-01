@@ -6,49 +6,74 @@
     <title>SPICES MSLA</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Fade-in animation for hero-content */
-        .hero-content {
+        /* Parallax background for hero section */
+        .hero {
+            background: url('your-background-image.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        /* Typing animation for hero content */
+        .hero-content h2 {
+            overflow: hidden;
+            border-right: 0.15em solid #fff; /* The typing cursor */
+            white-space: nowrap;
+            margin: 0 auto; /* Keeps the element centered */
+            letter-spacing: 0.15em;
+            animation: typing 3.5s steps(30, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: white }
+        }
+
+        /* Fade-in animation for sections */
+        .chili-powder, .spice-products {
             opacity: 0;
-            animation: fadeIn 2s forwards;
+            transform: translateY(50px);
+            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        .chili-powder.visible, .spice-products.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        /* Slide-in animation for grid items */
-        .grid-item {
-            opacity: 0;
-            transform: translateX(-50px);
-            animation: slideIn 1.0s forwards;
+        /* Hover effects for images and buttons */
+        .grid-item img, .buy-now-btn {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .grid-item:nth-child(2) {
-            animation-delay: 0.5s;
+        .grid-item img:hover, .buy-now-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
-        .grid-item:nth-child(3) {
-            animation-delay: 1s;
+        /* Button hover effect with color change */
+        .buy-now-btn {
+            padding: 10px 20px;
+            background-color: #FF6347;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
-        .grid-item:nth-child(4) {
-            animation-delay: 1.5s;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        .buy-now-btn:hover {
+            background-color: #FF4500;
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -67,7 +92,7 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <h2>SPICES MSLA</h2>
-            <p>"Let us change the taste !"</p>
+            <p>"Let us change the taste!"</p>
         </div>
     </section>
 
@@ -133,5 +158,201 @@
             </div>
         </div>
     </section>
+
+    <script>
+        // JavaScript to add 'visible' class when sections come into view
+        const sections = document.querySelectorAll('.chili-powder, .spice-products');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPICES MSLA</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Parallax background for hero section */
+        .hero {
+            background: url('your-background-image.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        /* Typing animation for hero content */
+        .hero-content h2 {
+            overflow: hidden;
+            border-right: 0.15em solid #fff; /* The typing cursor */
+            white-space: nowrap;
+            margin: 0 auto; /* Keeps the element centered */
+            letter-spacing: 0.15em;
+            animation: typing 3.5s steps(30, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: white }
+        }
+
+        /* Fade-in animation for sections */
+        .chili-powder, .spice-products {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+        }
+
+        .chili-powder.visible, .spice-products.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hover effects for images and buttons */
+        .grid-item img, .buy-now-btn {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .grid-item img:hover, .buy-now-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Button hover effect with color change */
+        .buy-now-btn {
+            padding: 10px 20px;
+            background-color: #FF6347;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .buy-now-btn:hover {
+            background-color: #FF4500;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="about.html">History</a></li> 
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>SPICES MSLA</h2>
+            <p>"Let us change the taste!"</p>
+        </div>
+    </section>
+
+    <!-- Chili Powder Information Section -->
+    <section id="about" class="chili-powder">
+        <div class="container">
+            <div class="grid-item">
+                <a href="ppowder.html">
+                    <img src="your-image1.jpg" alt="Chili Powder in a Bowl">
+                </a>
+            </div>
+            <div class="grid-item">
+                <p>Pepper powder, known for its robust and pungent flavor, is a cornerstone in the culinary world, essential in both household kitchens and gourmet restaurants. It’s more than just a spice; it's a symbol of quality and tradition. For businesses, pepper powder offers a lucrative opportunity to tap into a market that values authenticity and flavor. Whether you're in the food production, packaging, or export industry, incorporating high-quality pepper powder into your product line can enhance your brand's reputation and appeal to a global audience.</p>
+                <a href="ppowder.html">
+                    <button class="buy-now-btn">Buy Now</button>
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="chilli.html"></a>
+                <p>Chili powder is a valuable product in the spice and food industry, with a broad market appeal and various business opportunities. From sourcing and production to marketing and export, businesses involved in chili powder can capitalize on its global popularity, cultural significance, and health benefits to create a successful product line. Chili powder plays a significant role in the business world, especially within the food.</p>
+                <a href="chilli.html">
+                    <button class="buy-now-btn">Buy Now</button>
+                </a>
+            </div>
+            <div class="grid-item">
+               <a href="chilli.html">
+                <img src="your-image2.jpg" alt="Chili Powder in a Spoon">
+            </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spice Product Information Section -->
+    <section id="spice-products" class="spice-products">
+        <div class="container">
+            <div class="grid-item">
+                <a href="pepper.html">
+                    <img src="black_pepper_image.jpg" alt="pepper powder">
+                </a>
+            </div>
+            <div class="grid-item">
+                <p>
+                    Pepper is a versatile and engaging tool for business advertising. As a humanoid robot developed by SoftBank Robotics, Pepper is designed to interact with people and provide information in a friendly, approachable manner. If you're considering using Pepper for your business, think about how it can best integrate with your existing marketing strategies and what specific functions would most benefit your customers.
+                </p>
+                <a href="pepper.html">
+                    <button class="buy-now-btn">Buy Now</button>
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="cardamom.html">
+                    <img src="cardamom_image.jpg" alt="cardamom">
+                </a>
+            </div>
+            <div class="grid-item">
+                <p>
+                    Discover the Magic of Cardamom:<br>
+                    Elevate Your Products with Premium Quality Spice<br><br>
+                    Unlock the rich, fragrant essence of cardamom and transform your offerings with a touch of luxury. Renowned for its unique flavor profile—spicy, sweet, and floral—cardamom is not just a spice; it's an experience. Elevate your product line with the extraordinary taste and aroma of cardamom. Contact us today to explore how our premium cardamom can add value to your business!
+                </p>
+                <a href="cardamom.html">
+                    <button class="buy-now-btn">Buy Now</button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // JavaScript to add 'visible' class when sections come into view
+        const sections = document.querySelectorAll('.chili-powder, .spice-products');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
