@@ -6,6 +6,61 @@
     <title>Contact Us</title>
     <link rel="stylesheet" href="order.css"> <!-- Link to external CSS file -->
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <style>
+        /* Floating animation for the form */
+        #contact-form {
+            animation: floatForm 4s ease-in-out infinite;
+        }
+
+        @keyframes floatForm {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Floating effect on input fields */
+        input[type="text"], input[type="email"], textarea {
+            animation: floatInput 6s ease-in-out infinite;
+        }
+
+        @keyframes floatInput {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Hover effect with floating on the submit button */
+        input[type="submit"] {
+            background-color: #FF6347;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            animation: floatButton 5s ease-in-out infinite;
+        }
+
+        @keyframes floatButton {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-7px);
+            }
+        }
+
+        input[type="submit"]:hover {
+            background-color: #FF4500;
+            transform: scale(1.05) translateY(-10px);
+        }
+    </style>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize EmailJS with your public key
