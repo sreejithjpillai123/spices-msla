@@ -5,6 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPICES MSLA</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Fade-in animation for hero-content */
+        .hero-content {
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Slide-in animation for grid items */
+        .grid-item {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideIn 1.0s forwards;
+        }
+
+        .grid-item:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .grid-item:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        .grid-item:nth-child(4) {
+            animation-delay: 1.5s;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -22,7 +68,6 @@
         <div class="hero-content">
             <h2>SPICES MSLA</h2>
             <p>"Let us change the taste !"</p>
-           
         </div>
     </section>
 
@@ -39,8 +84,6 @@
                 <a href="ppowder.html">
                     <button class="buy-now-btn">Buy Now</button>
                 </a>
-                
-                
             </div>
             <div class="grid-item">
                 <a href="chilli.html"></a>
@@ -58,41 +101,37 @@
     </section>
 
     <!-- Spice Product Information Section -->
-<section id="spice-products" class="spice-products">
-    <div class="container">
-        <div class="grid-item">
-            <a href="pepper.html">
-                <img src="black_pepper_image.jpg" alt="pepper powder">
-            </a>
-            
+    <section id="spice-products" class="spice-products">
+        <div class="container">
+            <div class="grid-item">
+                <a href="pepper.html">
+                    <img src="black_pepper_image.jpg" alt="pepper powder">
+                </a>
+            </div>
+            <div class="grid-item">
+                <p>
+                    Pepper is a versatile and engaging tool for business advertising. As a humanoid robot developed by SoftBank Robotics, Pepper is designed to interact with people and provide information in a friendly, approachable manner. If you're considering using Pepper for your business, think about how it can best integrate with your existing marketing strategies and what specific functions would most benefit your customers.
+                </p>
+                <a href="pepper.html">
+                    <button class="buy-now-btn">Buy Now</button>
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="cardamom.html">
+                    <img src="cardamom_image.jpg" alt="cardamom">
+                </a>
+            </div>
+            <div class="grid-item">
+                <p>
+                    Discover the Magic of Cardamom:<br>
+                    Elevate Your Products with Premium Quality Spice<br><br>
+                    Unlock the rich, fragrant essence of cardamom and transform your offerings with a touch of luxury. Renowned for its unique flavor profile—spicy, sweet, and floral—cardamom is not just a spice; it's an experience. Elevate your product line with the extraordinary taste and aroma of cardamom. Contact us today to explore how our premium cardamom can add value to your business!
+                </p>
+                <a href="cardamom.html">
+                    <button class="buy-now-btn">Buy Now</button>
+                </a>
+            </div>
         </div>
-        <div class="grid-item">
-            <p>
-                Pepper is a versatile and engaging tool for business advertising. As a humanoid robot developed by SoftBank Robotics, Pepper is designed to interact with people and provide information in a friendly, approachable manner. If you're considering using Pepper for your business, think about how it can best integrate with your existing marketing strategies and what specific functions would most benefit your customers.
-                
-            </p>
-            <a href="pepper.html">
-                <button class="buy-now-btn">Buy Now</button>
-            </a>
-        </div>
-        <div class="grid-item">
-            <a href="cardamom.html">
-            </ul>
-            <img src="cardamom_image.jpg" alt="pepper powder">
-            </a>
-           
-        </div>
-        <div class="grid-item">
-            <p>
-                Discover the Magic of Cardamom:<br>
-                Elevate Your Products with Premium Quality Spice<br><br>
-                Unlock the rich, fragrant essence of cardamom and transform your offerings with a touch of luxury. Renowned for its unique flavor profile—spicy, sweet, and floral—cardamom is not just a spice; it's an experience. Elevate your product line with the extraordinary taste and aroma of cardamom. Contact us today to explore how our premium cardamom can add value to your business!
-            </p>
-            <a href="cardamom.html">
-                <button class="buy-now-btn">Buy Now</button>
-            </a>
-        </div>
-    </div>
-</section>
-
-   
+    </section>
+</body>
+</html>
