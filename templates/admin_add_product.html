@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add Product</title>
+</head>
+<body>
+    <h2>Add New Product</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="Product Name" required><br>
+        <input type="text" name="price" placeholder="Price" required><br>
+        <select name="status">
+            <option value="Available">Available</option>
+            <option value="Out of Stock">Out of Stock</option>
+        </select><br>
+        <input type="file" name="image" required><br>
+        <button type="submit">Add Product</button>
+    </form>
+</body>
+</html>

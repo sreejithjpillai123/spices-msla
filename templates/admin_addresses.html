@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin - View Addresses and Orders</title>
+</head>
+<body>
+    <h1>All Saved Addresses and Orders</h1>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Full Name</th>
+                <th>Phone</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip Code</th>
+                <th>Country</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Order Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in orders_with_products %}
+            <tr>
+                <!-- User ID -->
+                <td>{{ entry.user._id }}</td>
+
+                <!-- Address Info from order -->
+                <td>{{ entry.order.full_name }}</td>
+                <td>{{ entry.order.phone }}</td>
+                <td>{{ entry.order.street }}</td>
+                <td>{{ entry.order.city }}</td>
+                <td>{{ entry.order.state }}</td>
+                <td>{{ entry.order.zip_code }}</td>
+                <td>{{ entry.order.country }}</td>
+
+                <!-- Product Info -->
+                <td>{{ entry.product.name }}</td>
+                <td>{{ entry.order.quantity }}</td>
+
+                <!-- Order Date -->
+                <td>{{ entry.order.order_date.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <a href="{{ url_for('admin_dashboard') }}">Back to Dashboard</a>
+</body>
+</html>

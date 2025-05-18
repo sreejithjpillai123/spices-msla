@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h2 {
+      margin-top: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    table, th, td {
+      border: 1px solid #999;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    a {
+      display: inline-block;
+      margin: 8px 0;
+      text-decoration: none;
+      color: #007bff;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h2>Welcome, Admin!</h2>
+  <p>Total Users: {{ total_users }}</p>
+  <p>Total Products: {{ total_products }}</p>
+  <p>Total Orders: {{ total_orders }}</p>
+
+  <!-- Admin Links -->
+  <a href="{{ url_for('add_product') }}">➕ Add New Product</a><br />
+  <a href="{{ url_for('view_users') }}">👤 View All Users</a><br />
+  <a href="{{ url_for('view_addresses') }}">📦 View All Addresses</a>
+
+  <!-- Order Details Section -->
+  <h2>Order Summary</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Product(s)</th>
+        <th>Total Quantity</th>
+        <th>Price (each)</th>
+        <th>Total Price</th>
+        <th>Address</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for order in orders %}
+  <tr>
+    <td>{{ order.user }}</td>
+    <td>
+      {% for item in order['items'] %}
+        {{ item['name'] }}{% if not loop.last %}, {% endif %}
+      {% endfor %}
+    </td>
+    <td>
+      {% for item in order['items'] %}
+        {{ item['quantity'] }}{% if not loop.last %}, {% endif %}
+      {% endfor %}
+    </td>
+    <td>
+      {% for item in order['items'] %}
+        ₹{{ item['price'] }}{% if not loop.last %}, {% endif %}
+      {% endfor %}
+    </td>
+    <td>₹{{ order.total_price }}</td>
+    <td>{{ order.address }}</td>
+    <td>{{ order.status }}</td>
+  </tr>
+{% endfor %}
+
+    </tbody>
+  </table>
+</body>
+</html>

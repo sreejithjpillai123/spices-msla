@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #000;
+}
+
+h1 {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1000px;
+    margin: auto;
+    padding: 0 20px; /* Add some horizontal padding */
+}
+
+.product-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-image {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.thumbnail-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.thumbnail:hover,
+.thumbnail.active {
+    border-color: #28a745;
+}
+
+.description {
+    max-width: 500px;
+    text-align: justify;
+    line-height: 1.6;
+}
+
+form {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type="number"] {
+    padding: 5px;
+    width: 60px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Responsive for tablets and smaller devices */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        max-width: 90%;
+    }
+
+    .product-image {
+        width: 80vw; /* scale image to viewport width */
+        max-width: 400px;
+    }
+
+    .description {
+        max-width: 100%;
+        padding: 0 10px;
+        font-size: 16px;
+    }
+
+    form {
+        justify-content: center;
+    }
+}
+
+/* Responsive for mobile phones */
+@media (max-width: 480px) {
+    .product-image {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .thumbnail {
+        width: 50px;
+        height: 50px;
+    }
+
+    input[type="number"] {
+        width: 50px;
+        margin-right: 5px;
+        padding: 4px;
+    }
+
+    button {
+        padding: 7px 14px;
+        font-size: 14px;
+    }
+}
+
+</style>
+
+<h1>{{ product.name }}</h1>
+<div class="container">
+  <div class="product-gallery">
+    <!-- Main large image -->
+    <img id="main-image" src="{{ url_for('static', filename=product.images[0]) }}" alt="{{ product.name }}" class="product-image">
+
+    <!-- Thumbnails -->
+    <div class="thumbnail-container">
+      {% for image in product.images %}
+        <img src="{{ url_for('static', filename=image) }}" alt="Thumbnail" class="thumbnail" onclick="changeImage(this)">
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="description">
+    <p>Price: ₹{{ product.price }}</p>
+    <p>
+      Cardamom is a spice made from the seeds of several plants in the genera
+      <i>Elettaria</i> and <i>Amomum</i>, which are part of the ginger family 
+      <i>Zingiberaceae</i>. It is native to the Indian subcontinent and 
+      Indonesia and is recognized for its small, triangular seed pods.
+    </p>
+    <p>
+      Cardamom has a complex flavor profile, characterized by its sweet, warm, 
+      and spicy notes, with hints of lemon, mint, and pine.
+    </p>
+
+    <form action="{{ url_for('add_to_cart') }}" method="POST">
+      <input type="hidden" name="product_id" value="{{ product._id }}">
+      <input type="number" name="quantity" value="1" min="1">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+</div>
+
+<!-- JS to handle thumbnail click -->
+<script>
+  function changeImage(imgElement) {
+    document.getElementById("main-image").src = imgElement.src;
+  }
+</script>
+{% endblock %}

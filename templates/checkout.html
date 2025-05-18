@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Checkout</title>
+</head>
+<body>
+    <h2>Checkout</h2>
+
+    <h3>Shipping Address:</h3>
+    <p>{{ address.full_name }}</p>
+    <p>{{ address.phone }}</p>
+    <p>{{ address.street }}, {{ address.city }}</p>
+    <p>{{ address.state }} - {{ address.zip_code }}</p>
+    <p>{{ address.country }}</p>
+
+    <a href="{{ url_for('pay', product_id=product.id) }}">Proceed to Payment</a>
+
+</body>
+</html>

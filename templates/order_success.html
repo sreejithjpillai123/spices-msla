@@ -1,0 +1,25 @@
+<h2>Order Placed Successfully!</h2>
+
+{% if order %}
+  <p><strong>Order ID:</strong> {{ order['_id'] }}</p>
+  <p><strong>Status:</strong> {{ order['status'] }}</p>
+  <p><strong>Total:</strong> ₹{{ order['total_price'] }}</p>
+
+  <h3>Ordered Items</h3>
+  <ul>
+    {% for item in order['items'] %}
+      <li>{{ item['name'] }} - Qty: {{ item['quantity'] }} - ₹{{ item['price'] }}</li>
+    {% endfor %}
+  </ul>
+
+  <h3>Shipping Address</h3>
+  <p>
+    {{ order['address']['full_name'] }}<br>
+    {{ order['address']['street'] }}, {{ order['address']['city'] }}<br>
+    {{ order['address']['state'] }} - {{ order['address']['zip_code'] }}<br>
+    {{ order['address']['country'] }}<br>
+    Phone: {{ order['address']['phone'] }}
+  </p>
+{% else %}
+  <p>No order found.</p>
+{% endif %}

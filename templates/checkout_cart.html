@@ -1,0 +1,22 @@
+<h2>Select Address to Place Order</h2>
+
+<form method="POST" action="{{ url_for('checkout_cart') }}">
+    <label for="address_id">Select Address:</label>
+    <select name="address_id" id="address_id" required>
+        {% for address in addresses %}
+            <option value="{{ address.id }}">
+                {{ address.full_name }}, {{ address.street }}, {{ address.city }}, {{ address.state }} - {{ address.zip_code }}, {{ address.country }}
+            </option>
+        {% endfor %}
+    </select>
+
+    <br><br>
+    <button type="submit" class="btn btn-success">Place Order</button>
+</form>
+
+<br>
+
+<!-- Add Address Button -->
+<a href="{{ url_for('add_address', next=url_for('checkout_cart')) }}">
+    <button class="btn btn-primary">Add New Address</button>
+</a>

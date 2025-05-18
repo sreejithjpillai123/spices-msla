@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add Address</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        form { max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
+        input, select { width: 100%; padding: 8px; margin: 10px 0; }
+        button { background-color: green; color: white; padding: 10px; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Enter Your Shipping Address</h2>
+    <form method="POST" action="{{ url_for('add_address') }}">
+
+        <input type="text" name="full_name" placeholder="Full Name" required>
+        <input type="text" name="phone" placeholder="Phone Number" required>
+        <input type="text" name="street" placeholder="Street Address" required>
+        <input type="text" name="city" placeholder="City" required>
+        <input type="text" name="state" placeholder="State" required>
+        <input type="text" name="zip_code" placeholder="Zip Code" required>
+        <input type="text" name="country" placeholder="Country" required>
+        <button type="submit">Save Address</button>
+    </form>
+</body>
+</html>
